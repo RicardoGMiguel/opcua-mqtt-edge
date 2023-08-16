@@ -9,7 +9,7 @@ import {
 } from 'node-opcua';
 import { connect } from 'mqtt';
 
-const app_api_url = process.env.APP_WEB_API;
+const app_api_url = process.env.APP_WEB_API || 'mqtt://localhost:1883';
 
 const clientMqtt = connect(app_api_url);
 
