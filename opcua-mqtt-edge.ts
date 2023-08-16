@@ -28,7 +28,7 @@ const client = OPCUAClient.create(options);
 
 const subscribe = async () => {
 
-    const endpointUrl = `opc.tcp://${require("os").hostname()}:${process.env.OPCUA_SERVER_PORT}${process.env.RESOURCE_PATH}`;
+    const endpointUrl = `opc.tcp://${process.env.OPCUA_HOSTNAME}:${process.env.OPCUA_SERVER_PORT}${process.env.RESOURCE_PATH}`;
 
     await client.connect(endpointUrl);
 
@@ -71,7 +71,7 @@ const subscribe = async () => {
 
 
     monitoredItem.on("changed", (dataValue: DataValue) => {
-        console.log(" value 1 has changed : ", dataValue.value.value.toString());
+        console.log(" value has changed : ", dataValue.value.value.toString());
 
         clientMqtt.publish('testOPC', dataValue.value.value.toString());
     });
