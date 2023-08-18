@@ -28,9 +28,13 @@ const client = OPCUAClient.create(options);
 
 const subscribe = async () => {
 
-    const endpointUrl = `opc.tcp://${process.env.OPCUA_HOSTNAME}:${process.env.OPCUA_SERVER_PORT}${process.env.RESOURCE_PATH}`;
+    const endpointUrl = `opc.tcp://${process.env.OPCUA_SERVER_HOSTNAME}:${process.env.OPCUA_SERVER_PORT}${process.env.OPCUA_SERVER_RESOURCE_PATH}`;
+
+    console.log('Trying to connecting on:', endpointUrl);
 
     await client.connect(endpointUrl);
+
+    console.log('Connected on:', endpointUrl);
 
     const session = await client.createSession();
 
