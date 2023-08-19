@@ -24,3 +24,24 @@ Passo a passo para criação de imagem docker no Azure Container Registry:
 git clone https://github.com/RicardoGMiguel/opcua-mqtt-edge.git
 ```
 
+###
+
+- Instale as dependências
+
+```
+cd opcua-mqtt-edge
+```
+```
+yarn
+```
+
+###
+
+- Crie a imagem docker localmente
+
+```
+docker build -t opcuamonitor/opcuaedge .
+```
+
+
+
