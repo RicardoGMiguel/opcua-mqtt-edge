@@ -43,5 +43,13 @@ yarn
 docker build -t opcuamonitor/opcuaedge .
 ```
 
+###
+
+- Faça o login do ACR, substituindo o username, o password e o server previamente salvos no bloco de notas.
+
+```
+docker login -u <ACR username> -p <ACR password> <ACR login server>
+```
+
 
 
