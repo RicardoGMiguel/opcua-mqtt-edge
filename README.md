@@ -118,6 +118,56 @@ ssh user@IP_MAQUINA
 docker login -u <ACR username> -p <ACR password> <ACR login server>
 ```
 
+### 
 
+- Faça o download da imagem docker que está no ACR
 
+```
+docker pull opcedge.azurecr.io/samples/opcuaedge
+```
+
+### 
+
+- O código do edge device se comunica com o o servidor OPC-UA e com o broker MQTT hospedado na nuvem, e as informações de acesso são informadas na criação do container por meio das seguintes variáveis de ambiente:
+  - APP_WEB_API -> Url do broker MQTT;
+  - OPCUA_SERVER_HOSTNAME -> Domínio do servidor OPC-UA;
+  - OPCUA_SERVER_PORT -> Porta do servidor OPC-UA;
+  - OPCUA_SERVER_RESOURCE_PATH -> Caminho do servidro OPC-UA.
+    
+- Crie o container do edge device editando as variáveis de ambiente
+  ```
+  docker run --name opcuaEdge -d -e APP_WEB_API=mqtt://<DOMINIO_BACKEND>:1883 -e OPCUA_SERVER_HOSTNAME=<DOMINIO_LOCAL> -e OPCUA_SERVER_PORT=3003 -e OPCUA_SERVER_RESOURCE_PATH=/UA/MyServer opcedge.azurecr.io/samples/opcuaedge
+  ```
+
+### Alguns comandos docker
+
+- Para listar as imagens docker
+
+```
+docker image list
+```
+
+###
+
+- Para listar os containers docker
+
+```
+docker container list
+```
+
+###
+
+- Para interromper o container docker
+
+```
+docker container stop <NOME_DO_CONTAINER>
+```
+
+###
+
+- Para iniciar o container docker
+
+```
+docker container start <NOME_DO_CONTAINER>
+```
 
