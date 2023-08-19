@@ -43,7 +43,7 @@ yarn
 docker build -t opcuamonitor/opcuaedge .
 ```
 
-###
+### Envio da imagem docker para o Azure Container Docker
 
 - Faça o login do ACR, substituindo o username, o password e o server previamente salvos no bloco de notas.
 
@@ -58,4 +58,14 @@ docker login -u <ACR username> -p <ACR password> <ACR login server>
 ```
 docker tag opcuamonitor/opcuaedge opcedge.azurecr.io/samples/opcuaedge
 ```
+
+###
+
+- Envie a imagem docker para o ACR
+
+```
+docker push opcedge.azurecr.io/samples/opcuaedge
+```
+
+
 
