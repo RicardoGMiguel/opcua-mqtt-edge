@@ -67,5 +67,57 @@ docker tag opcuamonitor/opcuaedge opcedge.azurecr.io/samples/opcuaedge
 docker push opcedge.azurecr.io/samples/opcuaedge
 ```
 
+### Download da imagem docker e criação de container em um edge device Ubuntu 20.04
+
+Acesse a máquina Ubuntu via ssh com o user e o IP_MAQUINA
+
+```
+ssh user@IP_MAQUINA
+```
+
+<sub>Obs.: Para saber o IP_MAQUINA, use o comando "ip a"</sub>
+
+###
+
+- Instale o docker
+
+```
+curl -fsSL https://get.docker.com -o get-docker.sh
+```
+```
+sudo sh get-docker.sh
+```
+```
+rm get-docker.sh
+```
+
+###
+
+- Prepare máquina para executar comandos docker como usuário normal
+
+```
+sudo usermod -a -G docker $USER
+```
+```
+exit
+```
+
+###
+
+- Entre novamente na máquina
+
+```
+ssh user@IP_MAQUINA
+```
+
+###
+
+- Faça o login do ACR, substituindo o username, o password e o server previamente salvos no bloco de notas.
+
+```
+docker login -u <ACR username> -p <ACR password> <ACR login server>
+```
+
+
 
 
