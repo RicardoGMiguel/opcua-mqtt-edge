@@ -8,7 +8,7 @@ Passo a passo para criação de imagem docker no Azure Container Registry:
 
 ### Criação de um Azure Container Registry
 
-- Crie um Azure Container Registry;
+- Crie um Azure Container Registry com o nome "opcedge";
 - Acesse o ACR criado, clique em "Access Key", e habilite o Admin User"
 - Copie os seguintes dados em um bloco de notas:
 
@@ -51,5 +51,11 @@ docker build -t opcuamonitor/opcuaedge .
 docker login -u <ACR username> -p <ACR password> <ACR login server>
 ```
 
+### 
 
+- Crie uma tag para a imagem docker
+
+```
+docker tag opcuamonitor/opcuaedge opcedge.azurecr.io/samples/opcuaedge
+```
 
