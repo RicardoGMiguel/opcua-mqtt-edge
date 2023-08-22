@@ -43,7 +43,7 @@ yarn
 docker build -t opcuamonitor/opcuaedge .
 ```
 
-### Envio da imagem docker para o Azure Container Docker
+### Envio da imagem docker para o Azure Container Registry
 
 - Faça o login do ACR, substituindo o username, o password e o server previamente salvos no bloco de notas.
 
